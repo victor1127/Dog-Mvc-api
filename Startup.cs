@@ -54,7 +54,7 @@ namespace DogMvc
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Breeds}/{action=Index}/{id?}");
             });
         }
     }
