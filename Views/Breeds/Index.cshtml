@@ -1,0 +1,64 @@
+﻿@using System.Text.Json
+
+@model IEnumerable<IGrouping<string, BreedViewModel>>
+
+@{
+    var listOfBreeds = new List<BreedViewModel>();
+
+}
+
+<div class="row">
+    <div class="col-12 col-md-4 breed-col bg-light">
+        <h1 class="text-end mb-4">Select a Dog Breed</h1>
+        @foreach (var breedGroup in Model)
+        {
+            if (string.IsNullOrEmpty(breedGroup.Key))
+            {
+                <h6 class="mt-2"><b>NOT SPECIFY</b></h6>
+            }
+            else
+            {
+                <h6 class="mt-2" style="text-transform:uppercase"><b>@breedGroup.Key</b></h6>
+            }
+            <div class="sub-breed my-4">
+                @foreach (var breed in breedGroup)
+                {
+                    listOfBreeds.Add(breed);
+                    <button id="btn-subdreed" type="button" class="btn btn-sm btn-outline-dark mt-2" onclick="DisplayBreedInfo('@breed.name', '@breed.imageUrl', '@breed.history',@breed.id)">
+                        <small>@breed.name</small>
+                    </button>
+                }
+            </div>
+        }
+    </div>
+
+    <div class="col-12 col-md-8">
+        <div class="img-container">
+            <div class="container-info">
+                <img id="breed-img" alt="Dog picture">
+                <div class="breds-on-hover">
+                    <span class="lead font-weight-bold">See also</span>
+                    <p class="mb-1" id="sub-1"></p>
+                    <p class="mb-1" id="sub-2"></p>
+                    <p class="mb-1" id="sub-3"></p>
+                </div>
+            </div>
+            <h2 id="breed-name"></h2>
+            <p class="text-muted" id="breed-description"></p>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var breedArray = @Html.Raw(
+        Json.Serialize(
+            ((IEnumerable<BreedViewModel>)listOfBreeds).Select(breed => new
+            {
+                id = breed.id,
+                name= breed.name
+            })
+        )
+    );
+
+</script>
+
