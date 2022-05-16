@@ -163,3 +163,10 @@ body {
     }
 }
 
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
