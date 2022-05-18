@@ -126,7 +126,7 @@ body {
 .breds-on-hover {
     background-color: rgb(28 60 94 / 0.50);
     color:white;
-    width: 15%;
+    width: 25%;
     height: 100%;
     border-radius: 20px 0px 0px 20px;
     padding: 4px;
@@ -159,7 +159,7 @@ body {
 
 @media (max-width:1115px){
     .breds-on-hover{
-        width:30%;
+        width:40%;
     }
 }
 

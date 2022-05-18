@@ -16,6 +16,7 @@ function DisplayBreedInfo(name, imgUrl, history, breedId) {
         alert("Object not found");
     }
 
+    document.getElementById("sub-header").innerHTML="Other sub-breeds"
     document.getElementById("sub-1").innerHTML = breedArray[index + 1].name;
     document.getElementById("sub-2").innerHTML = breedArray[index + 2].name;
     document.getElementById("sub-3").innerHTML = breedArray[index + 3].name;

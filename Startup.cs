@@ -27,6 +27,7 @@ namespace DogMvc
         {
             services.AddControllersWithViews();
             services.Configure<DogApiModel>(Configuration.GetSection("DogApiInfo"));
+            services.Configure<EmailConfigurationModel>(Configuration.GetSection("EmailConfigurationModel"));
             services.AddScoped<DogApi>();
         }
 
