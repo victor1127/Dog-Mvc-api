@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace DogMvc.Services
 {
-    interface IEmailSender
+    public interface IEmailSender
     {
         Task SendEmailAsync(string name, string emailFrom, string subject, string htmlMessage);
 

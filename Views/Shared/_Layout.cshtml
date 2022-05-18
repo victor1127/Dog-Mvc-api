@@ -13,7 +13,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid px-3">
-                <a class="navbar-brand" asp-area="" asp-controller="Breeds" asp-action="Index"><img src="/img/Dog-paw.png" width="28" height="28"/></a>
+                <a class="navbar-brand" asp-area="" asp-controller="Breeds" asp-action="Index"><img src="/img/Dog-paw.png" width="28" height="28" /></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -24,7 +24,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Breeds" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Breeds" asp-action="Index">Contact</a>
+                            <button class="nav-link text-dark btn-contact" data-toggle="modal" data-target="#contactModel">Contact</button>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="https://github.com/victor1127/Dog-Mvc-api" target="_blank">Git</a>
@@ -54,3 +54,34 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+Contact modal
+<div class="modal fade" id="contactModel" tabindex="-1" aria-labelledby="modaltitle" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body p-5">
+                <h5 class="moda-title" id="modaltitle">
+                     I'm looking forward to hearing from you :)
+                </h5>
+                <form asp-controller="Contact" asp-action="ContactSender" method="post">
+                    <div class="form-group mb-3">
+                        <input type="text" class="form-control form-input" name="Name" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <input type="email" class="form-control form-input" name="Email"  placeholder="Email@email.com" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <input type="text" class="form-control form-input" name="Subject" placeholder="Subject" required>
+                    </div>
+                    <div class="mb-3">
+                        <textarea name="Message" class="form-control text-area-modal" required></textarea>
+                    </div>
+                    <div class="btns-modal">
+                        <button type="submit" class="btn btn-primary btn-sm btn-send px-4">Send</button>
+                        <button type="button" class="btn btn-outline-primary btn-modal-cancel btn-sm px-4" data-dismiss="modal">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

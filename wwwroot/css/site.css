@@ -170,3 +170,39 @@ body {
 ::-webkit-scrollbar-thumb {
     background: #FF0000;
 }
+
+.btn-contact{
+    border:none;
+    background-color:white;
+}
+
+.btns-modal{
+    display:flex;
+    justify-content:end;
+}
+
+.moda-title {
+    font-weight: 500;
+    line-height: 1.2;
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-input {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: solid 1px #0275d8;
+    width: 100%;
+}
+
+.btn-send{
+    margin-right:4px;
+}
+.text-area-modal {
+    height: 10em !important;
+}
+
+.btn-modal-cancel:hover {
+    background-color: #0275d8;
+}

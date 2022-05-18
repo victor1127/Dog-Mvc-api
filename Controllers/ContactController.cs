@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DogMvc.Services;
+using DogMvc.ViewModel;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +10,23 @@ namespace DogMvc.Controllers
 {
     public class ContactController : Controller
     {
+        private readonly IEmailSender _emailService;
+        public ContactController(IEmailSender emailService)
+        {
+            _emailService = emailService;
+        }
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult ContactSender(EmailInputModel model)
+        public async Task<IActionResult> ContactSender([Bind("Name", "Email", "Subject", "Message")] EmailInputModel model)
         {
-            return View();
+            await _emailService.SendEmailAsync(model.Name, model.Email, model.Subject, model.Message);
+            return RedirectToAction(nameof(Index), "Breeds");
         }
     }
 }
+
+
+
+

@@ -1,5 +1,7 @@
 using DogMvc.ApiHelper;
 using DogMvc.Models.ConfigurationModels;
+using DogMvc.Services;
+using DogMvc.ViewModel;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,6 +31,7 @@ namespace DogMvc
             services.Configure<DogApiModel>(Configuration.GetSection("DogApiInfo"));
             services.Configure<EmailConfigurationModel>(Configuration.GetSection("EmailConfigurationModel"));
             services.AddScoped<DogApi>();
+            services.AddScoped<IEmailSender, EmailService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
